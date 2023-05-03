@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+
 public class NPCAI : MonoBehaviour
 {
     //[SerializeField] private GameObject destination;
@@ -31,7 +32,8 @@ public class NPCAI : MonoBehaviour
     //Saldırı planlaması yapılacağında bu kısıma dönülecek
     public float timeBetweensAttacks; //Atışlar arası süre için
     bool alreadyAttacked; //Saldırı
-    public GameObject bullet;
+
+    public SpawnBullet spawnBullet;
 
     public float sightRange, attackRange; // NPC'nin saldırı ve görüş alanı
     public bool playerInSightRange, playerAttackRange;//Player için
@@ -39,6 +41,8 @@ public class NPCAI : MonoBehaviour
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
+
+        spawnBullet = GameObject.FindObjectOfType<SpawnBullet>().GetComponent<SpawnBullet>();
     }
 
     private void Update()
@@ -100,9 +104,10 @@ public class NPCAI : MonoBehaviour
         transform.LookAt(_player);
         if (!alreadyAttacked)
         {
-            Rigidbody rb = Instantiate(bullet, transform.position, Quaternion.identity).GetComponent < Rigidbody > ();
-            rb.AddForce(transform.forward * 25f, ForceMode.Impulse); //ileri
-            rb.AddForce(transform.up * 7f, ForceMode.Impulse); //yukarı
+            //Rigidbody rb = Instantiate(bullet, transform.position, Quaternion.identity).GetComponent < Rigidbody > ();
+            //rb.AddForce(transform.forward * 25f, ForceMode.Impulse); //ileri
+            //rb.AddForce(transform.up * 7f, ForceMode.Impulse); //yukarı
+            spawnBullet.Fire();
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweensAttacks);

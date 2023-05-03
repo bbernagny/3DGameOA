@@ -2390,6 +2390,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &329484493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 329484494}
+  - component: {fileID: 329484495}
+  m_Layer: 0
+  m_Name: BulletHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &329484494
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329484493}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.196, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2132414844}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &329484495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329484493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e015a9594a04e13842684a3a276630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 8692573661601634736, guid: 9a1e8dd18740c49768f885650e1520c9, type: 3}
+  _npcAgent: {fileID: 2132414844}
 --- !u!1001 &363621215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34473,7 +34519,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 811972984}
-  - component: {fileID: 811972983}
+  - component: {fileID: 811972985}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -34481,7 +34527,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &811972983
+--- !u!4 &811972984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811972982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &811972985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -34506,21 +34567,6 @@ MonoBehaviour:
   - {fileID: 1764875451}
   - {fileID: 477277200}
   coinPrefab: {fileID: 4101368118503973632, guid: c06db571babc04cd197f72dccc0c8bfc, type: 3}
---- !u!4 &811972984
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 811972982}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!850595691 &837839778
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -47541,6 +47587,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2132414844 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1224221320003478807, guid: 16ef24adb67534a41b53a930e9e955d5, type: 3}
+  m_PrefabInstance: {fileID: 1224221318612677739}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &69700297793546491
 GameObject:
   m_ObjectHideFlags: 0
@@ -48504,6 +48555,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 490576249538396165}
+    - target: {fileID: 2132414846, guid: 16ef24adb67534a41b53a930e9e955d5, type: 3}
+      propertyPath: bulletHolder
+      value: 
+      objectReference: {fileID: 329484493}
     - target: {fileID: 1224221320003478803, guid: 16ef24adb67534a41b53a930e9e955d5, type: 3}
       propertyPath: m_Name
       value: NPC
