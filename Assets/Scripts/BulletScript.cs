@@ -7,12 +7,13 @@ public class BulletScript : MonoBehaviour
     private void OnEnable()
     {
         transform.GetComponent<Rigidbody>().WakeUp();
-        Invoke("hideBullet", 2.0f);
+        Invoke("hideBullet", 4.0f);
     }
 
     void hideBullet()
     {
         gameObject.SetActive(false);
+      
     }
 
     private void OnDisable()

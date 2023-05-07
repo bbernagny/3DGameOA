@@ -6,17 +6,23 @@ using AudioManagerNM;
 using CoinRand;
 using System.Linq;
 using System;
+using TMPro;
 
 public class CollectibleManager : MonoBehaviour
 {
     private SpawnCoin spawner;
     [SerializeField] private GameObject _spawner;
+    [SerializeField] private TMP_Text _text;
+    private int count = 0;
+
     private GameObject _music;
     private AudioManager _audioManager;
     private int totalSpawnPoints;
     int y;
 
     private ThirdPersonController thirdPersonController;
+
+    [SerializeField] private GameObject powerUp;
 
     private void Start()
     {
@@ -36,7 +42,9 @@ public class CollectibleManager : MonoBehaviour
             //Destroy(other.gameObject);
             //other.gameObject.SetActive(false);
             //AudioSource.PlayClipAtPoint(_audioManager.audioClips[1], gameObject.transform.position);
-
+            count++;
+            _text.text = count.ToString();
+            
             other.gameObject.SetActive(false);
             AudioSource.PlayClipAtPoint(_audioManager.audioClips[1], gameObject.transform.position);
             StartCoroutine(Spawn(other.gameObject));
@@ -44,6 +52,7 @@ public class CollectibleManager : MonoBehaviour
 
         if (other.gameObject.CompareTag("powerup"))
         {
+            powerUp.SetActive(true);
             Destroy(other.gameObject);
             AudioSource.PlayClipAtPoint(_audioManager.audioClips[0], gameObject.transform.position);
             StartCoroutine(JumpHeightTime());
@@ -54,7 +63,8 @@ public class CollectibleManager : MonoBehaviour
     IEnumerator JumpHeightTime()
     {
         thirdPersonController.JumpHeight = 10f;
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSecondsRealtime(3f);
+        powerUp.SetActive(false);
         thirdPersonController.JumpHeight = 1.2f;
     }
 

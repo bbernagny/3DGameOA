@@ -19,6 +19,7 @@ public class SpawnBullet : MonoBehaviour
             GameObject objBullet = (GameObject)Instantiate(bullet);
             objBullet.SetActive(false);
             bulletList.Add(objBullet);
+            
         }
     }
 
@@ -35,8 +36,15 @@ public class SpawnBullet : MonoBehaviour
                 Rigidbody tempRigidbodyBullet = bulletList[i].GetComponent<Rigidbody>();
                 tempRigidbodyBullet.AddForce(transform.forward * 25f, ForceMode.Impulse);
                 tempRigidbodyBullet.AddForce(transform.up * 7f, ForceMode.Impulse);
+                StartCoroutine(ChangeTag(tempRigidbodyBullet.gameObject));
                 break;
             }
         }
+    }
+
+    IEnumerator ChangeTag(GameObject gameObject)
+    {
+        yield return new WaitForSeconds(2f);
+        gameObject.tag = "Respawn";
     }
 }
