@@ -8,6 +8,7 @@ TagManager:
   - coin
   - powerup
   - Bullet
+  - "u\u0131"
   layers:
   - Default
   - TransparentFX

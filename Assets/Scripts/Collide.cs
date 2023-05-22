@@ -24,6 +24,21 @@ public class Collide : MonoBehaviour
             _panel.SetActive(true);
             StartCoroutine(Fade());
         }
+
+        if (other.gameObject.CompareTag("uı"))
+        {
+            other.gameObject.SetActive(true);
+            Debug.Log("ui activated");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("uı"))
+        {
+            other.gameObject.SetActive(false);
+            Debug.Log("ui deactivated");
+        }
     }
 
     IEnumerator Fade()
