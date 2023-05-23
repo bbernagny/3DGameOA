@@ -27,7 +27,8 @@ public class Collide : MonoBehaviour
 
         if (other.gameObject.CompareTag("uı"))
         {
-            other.gameObject.SetActive(true);
+            var a = other.gameObject.transform.GetChild(0).gameObject;
+            a.SetActive(true);
             Debug.Log("ui activated");
         }
     }
@@ -36,7 +37,8 @@ public class Collide : MonoBehaviour
     {
         if (other.gameObject.CompareTag("uı"))
         {
-            other.gameObject.SetActive(false);
+            var a = other.gameObject.transform.GetChild(0).gameObject;
+            a.SetActive(false);
             Debug.Log("ui deactivated");
         }
     }
